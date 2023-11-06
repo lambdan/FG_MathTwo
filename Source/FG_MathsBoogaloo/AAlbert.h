@@ -25,4 +25,16 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY(EditAnywhere)
+	TArray<AActor*> TestActors;
+
+	// How close something needs to be for us to check for it
+	UPROPERTY(EditAnywhere)
+	float CheckDistance = 1000;
+	
+	UFUNCTION(BlueprintCallable,BlueprintPure)
+	bool IsInFrontOfUs(AActor* OtherActor);
+	bool IsBehindUs(AActor* OtherActor);
+	bool IsBelowUs(AActor* OtherActor);
+	bool IsAboveUs(AActor* OtherActor);
 };
