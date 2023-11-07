@@ -70,6 +70,29 @@ bool UMathLibrary::IsAbove(AActor* ActorA, AActor* ActorB, float Tolerance)
 	return false;	
 }
 
+bool UMathLibrary::IsBelow(AActor* ActorA, AActor* ActorB, float Tolerance)
+{
+	if(ActorA == nullptr || ActorB == nullptr)
+	{
+		return false;
+	}
+	
+	auto LocationA = ActorA->GetActorLocation();
+	auto LocationB = ActorB->GetActorLocation();
+	auto Direction = (LocationB - LocationA).GetSafeNormal();
+	
+	auto dot = FVector::DotProduct(Direction, ActorA->GetActorUpVector());
+
+	UE_LOG(LogTemp, Warning, TEXT("%f"), dot);
+	
+	if (dot < -Tolerance)
+	{
+		return true;
+	}
+
+	return false;	
+}
+
 
 /*
 bool AAAlbert::IsBelowUs(AActor* OtherActor)

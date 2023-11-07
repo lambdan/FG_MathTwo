@@ -28,5 +28,7 @@ public:
 	UFUNCTION(BlueprintCallable,BlueprintPure)
 	static bool IsAbove(AActor* ActorA, AActor* ActorB, float Tolerance=0.9);
 	
-	// static bool IsBelowUs(AActor* OtherActor);
+	// Returns true if Actor B is below Actor A. Tolerance closer to 1 means Actor A have to be more centered above Actor B.
+	UFUNCTION(BlueprintCallable,BlueprintPure)
+	static bool IsBelow(AActor* ActorA, AActor* ActorB, float Tolerance=0.7);
 };
