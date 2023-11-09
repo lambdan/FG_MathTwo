@@ -31,7 +31,7 @@ bool UMathLibrary::IsInFront(AActor* ActorA, AActor* ActorB, float Tolerance, fl
 	return false;
 }
 
-bool UMathLibrary::IsBehind(AActor* ActorA, AActor* ActorB, float Tolerance)
+bool UMathLibrary::IsBehind(AActor* ActorA, AActor* ActorB, float Tolerance, float Distance)
 {
 	if(ActorA == nullptr || ActorB == nullptr)
 	{
@@ -40,6 +40,13 @@ bool UMathLibrary::IsBehind(AActor* ActorA, AActor* ActorB, float Tolerance)
 	
 	auto LocationA = ActorA->GetActorLocation();
 	auto LocationB = ActorB->GetActorLocation();
+
+	auto d = FVector::Distance(LocationA, LocationB);
+	// UE_LOG(LogTemp, Warning, TEXT("distance = %f"), d);
+	if(d > Distance)
+	{
+		return false;
+	}
 	
 	auto Direction = (LocationB - LocationA).GetSafeNormal();
 	auto dot = FVector::DotProduct(Direction, ActorA->GetActorForwardVector());
