@@ -10,10 +10,12 @@
 UENUM(BlueprintType)
 enum class EEasingFunction : uint8
 {
+	EEF_None	UMETA(DisplayName="None"),
 	EEF_SineInOut	UMETA(DisplayName="Sine In Out"),
 	EEF_EaseInCirc	UMETA(DisplayName="Ease In Circ"),
 	EEF_EaseInSine	UMETA(DisplayName="Ease In Sine"),
 	EEF_EaseOutSine	UMETA(DisplayName="Ease Out Sine"),
+	EEF_EaseInElastic	UMETA(DisplayName="Ease In Elastic"),
 };
 
 UCLASS()
