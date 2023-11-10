@@ -25,5 +25,19 @@ class FG_MATHSBOOGALOO_API UEasingFunctions : public UBlueprintFunctionLibrary
 
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	static float Ease(const float T, const EEasingFunction EasingFunction);
-	
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	static float SineInOut(const float T);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	static float EaseInCirc(const float T);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	static float EaseInSine(const float T);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	static float EaseOutSine(const float T);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	static float EaseInElastic(const float T);
 };
