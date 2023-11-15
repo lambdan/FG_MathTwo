@@ -15,12 +15,8 @@ UCollisionComponent::UCollisionComponent()
 // Called when the game starts
 void UCollisionComponent::BeginPlay()
 {
-
 	Super::BeginPlay();
-
-	
 	UGameplayStatics::GetAllActorsWithTag(GetWorld(), FName("COLLISION"), CollisionActors);
-	
 }
 
 void UCollisionComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
@@ -48,7 +44,6 @@ void UCollisionComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 			// UE_LOG(LogTemp, Warning, TEXT("%f %f %f"), Acc.X, Acc.Y, Acc.Z);
 		}
 	}
-
 	
 	Velocity += Acc;
 	GetOwner()->AddActorWorldOffset(Velocity * DeltaTime);
