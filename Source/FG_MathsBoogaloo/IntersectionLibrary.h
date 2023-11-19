@@ -6,18 +6,6 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "IntersectionLibrary.generated.h"
 
-
-UENUM(BlueprintType)
-enum EIntersection
-{
-	Plane,
-	Sphere,
-	Triangle,
-	AABB,
-	Ray,
-};
-
-
 UCLASS()
 class FG_MATHSBOOGALOO_API UIntersectionLibrary : public UBlueprintFunctionLibrary
 {
@@ -39,7 +27,4 @@ public:
 
 	// Returns true if spheres A and B are intersecting
 	static bool SphereSphereIntersection(FVector SphereALocation, float SphereARadius, FVector SphereBLocation, float SphereBRadius);
-
-	UFUNCTION(BlueprintCallable, BlueprintPure)
-	static bool RayPlane(FVector Origin, FVector Dir, FVector PlaneNormal, FVector PlaneOrigin, FVector& ContactPoint);
 };

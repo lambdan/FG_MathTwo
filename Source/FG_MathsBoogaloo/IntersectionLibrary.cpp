@@ -73,19 +73,3 @@ bool UIntersectionLibrary::SphereSphereIntersection(FVector SphereALocation, flo
 	return SumRadius > Distance;
 
 }
-
-bool UIntersectionLibrary::RayPlane(FVector Origin, FVector Dir, FVector PlaneNormal, FVector PlaneOrigin, FVector& ContactPoint)
-{
-	auto CoordDot = PlaneNormal.Dot(PlaneOrigin);
-	auto DirDot = PlaneNormal.Dot(Dir);
-
-	if(DirDot >= 0)
-	{
-		return false;
-	}
-
-	auto T = (CoordDot - PlaneNormal.Dot(Origin)) / DirDot;
-	ContactPoint = Origin + Dir.GetSafeNormal() * T;
-
-	return true;
-}
