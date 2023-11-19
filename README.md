@@ -55,5 +55,5 @@ Relevant files: [NoiseMesh.h](https://github.com/lambdan/FG_MathTwo/blob/main/So
 
 - Implemented as a "flying carpet". It's basically a mesh you stand on and it starts moving, and it "animates" the mesh through perlin noise
 
-![GIF](https://i.imgur.com/rjgboUH.gif)
+![GIF](https://djsimg.org/vvavylsOrDIPDFhhWvU2.webp)
 
