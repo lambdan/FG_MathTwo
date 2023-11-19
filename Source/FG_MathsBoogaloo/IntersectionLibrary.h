@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// 3: Intersection
 
 #pragma once
 
@@ -25,8 +25,21 @@ class FG_MATHSBOOGALOO_API UIntersectionLibrary : public UBlueprintFunctionLibra
 
 public:
 
-	// Returns true if Actor A and B is intersecting with each other (using AABB)
+	// Returns true if Actor A and B is intersecting
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	static bool AABBIntersection(AActor* ActorA, AActor* ActorB);
-	
+
+	// Returns true if Box A and Box B intersects
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	static bool AABBIntersectionBoxes(FBox BoxA, FBox BoxB);
+
+	// Returns true if Sphere A is intersecting with actor B
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	static bool SphereActorIntersecting(FVector SphereALocation, float SphereARadius, AActor* ActorB);
+
+	// Returns true if spheres A and B are intersecting
+	static bool SphereSphereIntersection(FVector SphereALocation, float SphereARadius, FVector SphereBLocation, float SphereBRadius);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	static bool RayPlane(FVector Origin, FVector Dir, FVector PlaneNormal, FVector PlaneOrigin, FVector& ContactPoint);
 };

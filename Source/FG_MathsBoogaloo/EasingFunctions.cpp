@@ -1,4 +1,5 @@
-// all of these copied straight from https://easings.net/
+// 2: Interpolation
+// all of these copied straight from https://easings.net/ (and converted to c++)
 
 #include "EasingFunctions.h"
 

@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// 1: State and Context
 
 #pragma once
 
@@ -6,9 +6,7 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "MathLibrary.generated.h"
 
-/**
- * 
- */
+
 UCLASS()
 class FG_MATHSBOOGALOO_API UMathLibrary : public UBlueprintFunctionLibrary
 {

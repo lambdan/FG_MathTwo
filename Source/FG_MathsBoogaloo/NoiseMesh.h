@@ -1,4 +1,5 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// 5: Noise
+// if i made this file today i would've called it FlyingCarpet
 
 #pragma once
 
@@ -24,6 +25,7 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
+	UPROPERTY()
 	APawn* PlayerPawn;
 	FTransform SpawnTransform;
 	bool PlayerOnMe = false;

@@ -1,10 +1,7 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
+// 5: Noise
+// if i made this file today i would've called it FlyingCarpet
 
 #include "NoiseMesh.h"
-
-#include "IntersectionLibrary.h"
-#include "Kismet/KismetMathLibrary.h"
 
 
 // Sets default values
@@ -35,6 +32,9 @@ void ANoiseMesh::Tick(float DeltaTime)
 	if (PlayerPawn != nullptr)
 	{
 		// should probably use intersection but its a little glitchy since the mesh moves around
+
+		// TODO maybe switch to rayplane (check if rug is underneath player)
+		
 		float DistanceToPlayer = FVector::Distance(this->GetActorLocation(), PlayerPawn->GetActorLocation());
 
 		// UE_LOG(LogTemp, Warning, TEXT("%f"), DistanceToPlayer);
@@ -94,8 +94,7 @@ void ANoiseMesh::GenerateNoise()
 
 			const int32 i = y * Resolution + x;
 			
-			NoiseArray[i] = FMath::PerlinNoise2D(pos) * Strength;// * FMath::RandRange(0.0f, 1.0f);
-			// UE_LOG(LogTemp, Warning, TEXT("%f"), NoiseArray[i]);
+			NoiseArray[i] = FMath::PerlinNoise2D(pos) * Strength;// * FMath::RandRange(0.0f, 1.0f); // tried giving it a random value here, which kinda worked but destroyed the smoothness
 			
 		}
 	}
@@ -104,7 +103,7 @@ void ANoiseMesh::GenerateNoise()
 void ANoiseMesh::GenerateMesh()
 {
 	Vertis.SetNum(NoiseArray.Num());
-	Triangles.SetNum(Resolution*Resolution*6); // why * 6? because you only get "half squares" otherwise
+	Triangles.SetNum(Resolution*Resolution*6); // why * 6? because you only get "half squares" otherwise (like a diagonally cut sandwich)
 	Colors.SetNum(NoiseArray.Num());
 	Norms.SetNum(NoiseArray.Num());
 	UVs.SetNum(NoiseArray.Num());
